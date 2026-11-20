@@ -2,6 +2,11 @@
 node_modules/
 pnpm-lock.yaml
 
+# npm 凭据 —— 绝对不能进仓库
+# 局部 .npmrc 会存 _authToken，那是能发布你所有包的长期密钥。
+# 实测：不加这行，git add -A 会把项目里的 .npmrc 一起提交。
+.npmrc
+
 # 运行时数据（插件自己的数据目录，不进仓库）
 memory-data/
 .memory-tree/
