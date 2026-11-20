@@ -4,19 +4,44 @@
 
 ## 安装
 
-**光 `npm install` 是不够的。** 「安装到项目里」和「装进 DSH 里」是两件不同的事。
+**没有真正的一键安装。** 把 npm 包装进 DSH 是两步，`npm install` 只完成其中一步都不到。
 
-`npm install`（无论是全局还是项目内）只是把文件放到 `node_modules`，DSH 启动时不会去读它。
-DSH 只加载 profile 的 `dsh.profile.bundles` 列表里登记过的包，所以 `npm install` 之后
-还得把包名登记进 bundles 列表，插件才会真正加载、侧边栏才会出现图标。
+DSH 启动时加载哪些插件，只看 profile 的 `package.json` 里 `dsh.profile.bundles` 这个数组；
+数组里的每个名字，要能在**同一个 profile 的 `node_modules`** 里解析到。
+两条同时满足才会加载，所以：
 
-两种登记方式，选一种即可（`<DSH_HOME>` 是本机的 DSH home，例如 `E:\dsh`）：
+- `npm install -g` / `npm install` 到随便一个项目里 → bundles 里没有它 → 不加载
+- 只把名字写进 bundles → 那个 profile 里解析不到这个包 → 报错
 
-- **图形界面**：打开 DSH Web → 设置 → 插件 → 添加插件，填 `dsh-dual-memory-tree`。
-- **命令行**：执行 `dsh plugin add dsh-dual-memory-tree`。
+下面以 profile 名 `desktop` 为例（`<DSH_HOME>` 是本机 DSH home，例如 `E:\dsh`）。
 
-登记后需要重启 DSH（或让 DSH 重载 profile）才会生效。装好后在工作区侧边栏会看到记忆树图标，
-点开就是双树面板；数据落在 `<工作目录>/.memory-tree/` 与 `<DSH_HOME>/memory-tree/`。
+**第一步，装进 profile**（`dsh plugin` 是 pnpm 的透传，装到 `<DSH_HOME>/profiles/<profile>/`）：
+
+```
+dsh plugin --profile desktop add dsh-dual-memory-tree
+```
+
+**第二步，登记进 bundles** —— 编辑 `<DSH_HOME>/profiles/desktop/package.json`，
+把包名加进数组：
+
+```json
+{
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "...",
+        "dsh-dual-memory-tree"
+      ]
+    }
+  }
+}
+```
+
+两步做完重启 DSH（或让它重载 profile）。桌面端的插件管理页也能装 bundle，
+填包名或安装规格即可，效果与上面两步相同。
+
+装好后工作区侧边栏会出现记忆树图标，点开就是双树面板；数据落在
+`<工作目录>/.memory-tree/` 与 `<DSH_HOME>/memory-tree/`。
 
 ## 更新日志
 
