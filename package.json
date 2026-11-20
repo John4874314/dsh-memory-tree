@@ -1,7 +1,6 @@
 {
   "name": "dsh-memory-tree",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "Dual-tree long-term memory for DeepSeek Harness: a task tree per working directory and one global habit tree, with decay scheduling, three-hop retrieval, handoff briefs, and a dual-tree visualization panel.",
   "keywords": [
@@ -18,7 +17,16 @@
     "darwin",
     "linux"
   ],
+  "author": "John4874314 <dmapa6168@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John4874314/dsh-memory-tree.git"
+  },
+  "homepage": "https://github.com/John4874314/dsh-memory-tree#readme",
+  "bugs": {
+    "url": "https://github.com/John4874314/dsh-memory-tree/issues"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
