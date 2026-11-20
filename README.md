@@ -45,6 +45,16 @@ dsh plugin --profile desktop add dsh-dual-memory-tree
 
 ## 更新日志
 
+### 0.1.2
+
+补上安装说明：`npm install` 装不上这个插件，缺的是 profile 里那一步登记。
+
+- 新增「安装」章节，写清 DSH 只加载 `dsh.profile.bundles` 里登记过的包，
+  且该包必须能在同一个 profile 的 `node_modules` 里解析到——两条同时成立才加载。
+- 给出正确的两步命令（`dsh plugin --profile desktop add ...` + 编辑 `package.json`
+  的 bundles 数组），并说明 `npm i -g` 为什么无效。
+- 无代码改动，功能与 0.1.1 完全一致。
+
 ### 0.1.1
 
 修 npm 页面不显示 README 的问题，并让发布走 CI。
