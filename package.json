@@ -1,6 +1,6 @@
 {
   "name": "dsh-dual-memory-tree",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Dual-tree long-term memory for DeepSeek Harness: a task tree per working directory and one global habit tree, with decay scheduling, three-hop retrieval, handoff briefs, and a dual-tree visualization panel.",
   "keywords": [

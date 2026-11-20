@@ -4,6 +4,15 @@
 
 ## 更新日志
 
+### 0.1.1
+
+修 npm 页面不显示 README 的问题，并让发布走 CI。
+
+- 0.1.0 是用 pnpm 手动发的，pnpm 不会把 README 内容写进包元数据的 `readme` 字段，
+  所以 npm 页面上一直显示「This package does not have a README」。改由 CI 用
+  `npm publish --provenance` 发布后就能正常显示。
+- 发布流程改为打 tag 触发 GitHub Actions，OIDC 认证，仓库里不再需要任何长期 token。
+
 ### 0.1.0
 
 首个可发布版本。
