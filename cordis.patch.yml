@@ -1,0 +1,8 @@
+# dsh-memory-tree bundle patch
+#
+# 单行插入：Host 侧注册 5 个 Agent 工具 + 一条同源数据路由，
+# Client 侧贡献一个侧栏图标和一个双树可视化面板。
+- insert:
+    - id: dsh-memory-tree
+      name: 'dsh-memory-tree'
+      config: {}

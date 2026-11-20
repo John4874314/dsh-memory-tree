@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Memory tree",
+    "description": "Dual-tree long-term memory: one task tree per working directory remembers what was done here, one machine-wide habit tree remembers who you are. When context breaks or a new session starts, three hops along the tree recover the background for a few hundred tokens instead of replaying the whole history. Includes forgetting-curve scheduling, handoff briefs, and a dual-tree visualization panel."
+  }
+}
