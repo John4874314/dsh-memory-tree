@@ -2,6 +2,22 @@
 
 > npm 包名 `dsh-dual-memory-tree`。DSH 插件注册名与数据目录仍沿用 `dsh-memory-tree` / `memory-tree`，已安装的用户升级时数据不受影响。
 
+## 安装
+
+**光 `npm install` 是不够的。** 「安装到项目里」和「装进 DSH 里」是两件不同的事。
+
+`npm install`（无论是全局还是项目内）只是把文件放到 `node_modules`，DSH 启动时不会去读它。
+DSH 只加载 profile 的 `dsh.profile.bundles` 列表里登记过的包，所以 `npm install` 之后
+还得把包名登记进 bundles 列表，插件才会真正加载、侧边栏才会出现图标。
+
+两种登记方式，选一种即可（`<DSH_HOME>` 是本机的 DSH home，例如 `E:\dsh`）：
+
+- **图形界面**：打开 DSH Web → 设置 → 插件 → 添加插件，填 `dsh-dual-memory-tree`。
+- **命令行**：执行 `dsh plugin add dsh-dual-memory-tree`。
+
+登记后需要重启 DSH（或让 DSH 重载 profile）才会生效。装好后在工作区侧边栏会看到记忆树图标，
+点开就是双树面板；数据落在 `<工作目录>/.memory-tree/` 与 `<DSH_HOME>/memory-tree/`。
+
 ## 更新日志
 
 ### 0.1.1
