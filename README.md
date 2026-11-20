@@ -42,14 +42,23 @@ dsh plugin --profile desktop remove dsh-dual-memory-tree
 
 ## 更新日志
 
+### 0.1.3
+
+安装说明收敛成一条命令，删掉多余的手动步骤。
+
+- 0.1.2 写的是「装包 + 手动把包名加进 `dsh.profile.bundles`」两步。实测 `dsh plugin`
+  装完会自动登记，手动那一步是多余的，已删掉。
+- 在隔离的空 DSH_HOME 里真装验证过：一条命令之后，依赖与 `bundles` 同时就位，
+  `dsh --dump-config` 能看到插件的 patch 块。
+- 无代码改动，功能与 0.1.2 完全一致。
+
 ### 0.1.2
 
 补上安装说明：`npm install` 装不上这个插件，缺的是 profile 里那一步登记。
 
 - 新增「安装」章节，写清 DSH 只加载 `dsh.profile.bundles` 里登记过的包，
   且该包必须能在同一个 profile 的 `node_modules` 里解析到——两条同时成立才加载。
-- 给出正确的两步命令（`dsh plugin --profile desktop add ...` + 编辑 `package.json`
-  的 bundles 数组），并说明 `npm i -g` 为什么无效。
+- 给出 `dsh plugin --profile desktop add ...` 这条命令，并说明 `npm i -g` 为什么无效。
 - 无代码改动，功能与 0.1.1 完全一致。
 
 ### 0.1.1
