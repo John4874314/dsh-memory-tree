@@ -1,4 +1,6 @@
-# dsh-memory-tree
+# dsh-dual-memory-tree
+
+> npm 包名 `dsh-dual-memory-tree`。DSH 插件注册名与数据目录仍沿用 `dsh-memory-tree` / `memory-tree`，已安装的用户升级时数据不受影响。
 
 ## 更新日志
 
